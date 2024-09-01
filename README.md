@@ -18,54 +18,68 @@ MediShield is a web-based platform built using Django for securely hiding sensit
 ## Installation
 
 1. **Clone the Repository**:
-   ```bash
-   git clone https://github.com/yourusername/medishield.git
-   cd medishield
-2.Create a Virtual Environment:
+    \`\`\`bash
+    git clone https://github.com/yourusername/medishield.git
+    cd medishield
+    \`\`\`
 
-bash
-Copy code
-python -m venv venv
-source venv/bin/activate   # On Windows: venv\Scripts\activate
+2. **Create a Virtual Environment**:
+    \`\`\`bash
+    python -m venv venv
+    source venv/bin/activate   # On Windows: venv\Scripts\activate
+    \`\`\`
 
-3.Install Required Packages:
+3. **Install Required Packages**:
+    \`\`\`bash
+    pip install -r requirements.txt
+    \`\`\`
 
-bash
-Copy code
-pip install -r requirements.txt
+4. **Run the Django Server**:
+    \`\`\`bash
+    python manage.py runserver
+    \`\`\`
 
-4.Run the Django Server:
+5. **Open in Web Browser**: Visit [http://127.0.0.1:8000](http://127.0.0.1:8000) to access the platform.
 
-bash
-Copy code
-python manage.py runserver
+## Usage
 
-Open in Web Browser: Visit http://127.0.0.1:8000 to access the platform.
+### Encryption
 
-#Usage
-Encryption
-Go to the "Encryption" page.
-Fill in the patient information form and upload a medical image.
-Click on "Encrypt" to hide the information within the image.
-The encrypted image will be saved, and a confirmation message will be displayed.
-Decryption
-Go to the "Decryption" page.
-Upload an image containing hidden data.
-Click on "Decrypt" to extract and view the hidden information.
-#Project Structure
-views.py: Contains the logic for encryption and decryption of data.
-templates/: HTML files for rendering the user interface.
-project_folder/encrypted_images/: Directory to store encrypted images.
-#File Upload and Handling
-Upload an image on the "Encryption" page.
-The system will process the image and save it with hidden data.
-Use the "Decryption" page to upload and retrieve hidden information.
-Contributing
-Fork the repository.
-Create a new branch.
-Make your changes.
-Submit a pull request.
-#
-### Additional Steps:
-- Save this content as `README.md` in the root directory of your GitHub repository.
-- Make sure to update the placeholders like `sahanac2004`, `sahanac629@gmail.com `, and the GitHub repository link to reflect your information.
+1. Go to the "Encryption" page.
+2. Fill in the patient information form and upload a medical image.
+3. Click on "Encrypt" to hide the information within the image.
+4. The encrypted image will be saved, and a confirmation message will be displayed.
+
+### Decryption
+
+1. Go to the "Decryption" page.
+2. Upload an image containing hidden data.
+3. Click on "Decrypt" to extract and view the hidden information.
+
+## Project Structure
+
+- **views.py**: Contains the logic for encryption and decryption of data.
+- **templates/**: HTML files for rendering the user interface.
+- **project_folder/encrypted_images/**: Directory to store encrypted images.
+
+## File Upload and Handling
+
+- Upload an image on the "Encryption" page.
+- The system will process the image and save it with hidden data.
+- Use the "Decryption" page to upload and retrieve hidden information.
+
+## Contributing
+
+1. Fork the repository.
+2. Create a new branch.
+3. Make your changes.
+4. Submit a pull request.
+
+## Acknowledgements
+
+- Built with Django and the Python Imaging Library (PIL).
+- Utilizes the Stepic library for steganography.
+
+## Contact
+
+For any questions or feedback, please reach out to [sahanac629@gmail.com ].
