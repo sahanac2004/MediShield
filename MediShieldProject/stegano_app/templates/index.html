@@ -1,0 +1,346 @@
+
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <title>MediShield</title>
+    <style>
+        :root {
+            --charcoal: #060C0A;
+            --midnight-green: #314847;
+            --raisin-black: #3e5251;
+            --moonstone: #A5D2CF;
+            --night: #080C0B;
+            --accent-color: #A3A3A3;
+            --primary-color: #1E7157;
+            --secondary-color: #F3F3F3;
+            --gradient-start: #3E5151;
+            --gradient-end: #DECBA4;
+        }
+
+        body {
+            background: linear-gradient(to right, var(--gradient-start), var(--gradient-end));
+            background-size: 400% 400%;
+            animation: gradientAnimation 15s ease infinite;
+            color: var(--charcoal);
+            font-family: 'Arial', sans-serif;
+        }
+
+        @keyframes gradientAnimation {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        .navbar {
+            background-color: var(--charcoal);
+        }
+
+        .navbar-brand {
+            color: #ffffff !important;
+            font-size: 1.5rem;
+        }
+
+        .navbar-nav .nav-link {
+            color: #ffffff !important;
+        }
+
+        .header {
+            background-color: var(--secondary-color);
+            color: var(--charcoal);
+            text-align: center;
+            padding: 100px 20px;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .header p {
+            font-size: 1.25rem;
+        }
+
+        .section {
+            padding: 60px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .section:before {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 150px; /* Adjust height as needed */
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none" fill="%23ffffff"><polygon points="0,0 100,100 0,100"/></svg>');
+            background-repeat: no-repeat;
+            background-size: cover;
+            z-index: -1;
+        }
+
+        .section-dark {
+            background-color: var(--charcoal);
+            color: #ffffff;
+        }
+
+        .section-light {
+            background-color: var(--secondary-color);
+            color: var(--charcoal);
+        }
+
+        .section .container {
+            text-align: center;
+        }
+
+        .section img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .section h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .section p {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer {
+            background-color: var(--charcoal);
+            color: #ffffff;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+        }
+
+        .feature-item {
+            margin-bottom: 3rem;
+            animation: fadeInUp 0.5s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .carousel-item img {
+            margin: auto;
+            border-radius: 50%;
+        }
+
+        .faq-item {
+            margin-bottom: 2rem;
+        }
+
+        .faq-item h3 {
+            font-size: 1.5rem;
+        }
+
+        .contact-info ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .contact-info li {
+            margin-bottom: 10px;
+        }
+
+        .contact-info strong {
+            color: var(--accent-color);
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <a class="navbar-brand" href="#">MediShield</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#home">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#about">About Us</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#features">Features</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#faqs">FAQs</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#contact">Contact Us</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    
+    <header id="home" class="header">
+        <div class="container">
+            <h1>Welcome to MediShield</h1>
+            <p>A Secure Medical Image Steganography Platform</p>
+            <a class="btn btn-primary btn-lg" href="#features" role="button">Learn more</a>
+        </div>
+    </header>
+
+    <section id="about" class="section section-dark">
+        <div class="container">
+            <h2>About Us</h2>
+            <p>MediShield is developed by a dedicated team of professionals committed to ensuring the security of medical records.</p>
+            <div id="aboutCarousel" class="carousel slide" data-ride="carousel" data-interval="3000">
+                <div class="carousel-inner">
+                    <div class="carousel-item active text-center">
+                        {% comment %} <img src="{% static 'images/member1.jpg' %}" alt="Member 1" class="img-fluid rounded-circle mb-2"> {% endcomment %}
+                        <h3>Sahana C</h3>
+                        <p>As a passionate Information Science and Engineering graduate with a strong foundation, to bring a unique blend of technical expertise and dedicated to staying up-to-date with the latest trends and technologies.</p>
+                    </div>
+                    <div class="carousel-item text-center">
+                        {% comment %} <img src="{% static 'images/member2.jpg' %}" alt="Member 2" class="img-fluid rounded-circle mb-2"> {% endcomment %}
+                        <h3>Chandana DC</h3>
+                        <p>Seeking a challenging position in ISE, leveraging my dedication project delivery capabilities. Eager to contribute positively within a supportive work environment and benefit from valuable mentorship opportunities.</p>
+                    </div>
+                    <div class="carousel-item text-center">
+                        {% comment %} <img src="{% static 'images/member3.jpg' %}" alt="Member 3" class="img-fluid rounded-circle mb-2"> {% endcomment %}
+                        <h3>Viashnavi BE</h3>
+                        <p>As a soon-to-be Information Science Engineering graduate, I want to use what I've learned in theory and practice to work on cool projects, team up with talented people, and get even better at what I do.</p>
+                    </div>
+                </div>
+                <a class="carousel-control-prev" href="#aboutCarousel" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#aboutCarousel" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section id="features" class="section section-light">
+        <div class="container">
+            <h2>Features</h2>
+            <div id="featureCarousel" class="carousel slide" data-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                            
+                                {% comment %} <img src="{% static 'images/feature1.jpg' %}" alt="Feature 1" class="img-fluid"> {% endcomment %}
+                                <h3>Secure Embedding</h3>
+                                <p>Securely embed medical records within diagnostic images using advanced steganographic techniques.</p>
+                                
+                    </div>
+                    <!-- Add more carousel items as needed -->
+                    <div class="carousel-item">
+                        
+                         
+                                {% comment %} <img src="{% static 'images/feature2.jpg' %}" alt="Feature 2" class="img-fluid"> {% endcomment %}
+                                <h3>Confidentiality</h3>
+                                <p>Ensure confidentiality and integrity of your data through robust encryption methods.</p>
+                          
+                        
+                    </div>
+                    <div class="carousel-item">
+                       
+                            
+                                {% comment %} <img src="{% static 'images/feature3.jpg' %}" alt="Feature 3" class="img-fluid"> {% endcomment %}
+                                <h3>User-Friendly</h3>
+                                <p>User-friendly interface for easy upload and extraction of medical records.</p>
+                            
+                        
+                    </div>
+                </div>
+                <a class="carousel-control-prev" href="#featureCarousel" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#featureCarousel" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+        </div>
+    </section>
+    
+    <section class="section section-dark">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 text-center">
+                    <img src="{% static 'images/encryption.jpg' %}" alt="Encryption Image" class="img-fluid">
+                    <a href="encryption/" class="btn btn-primary btn-lg mt-3">Encrypt Now</a>
+                </div>
+                <div class="col-md-6 text-center">
+                    <img src="{% static 'images/decryption.jpg' %}" alt="Decryption Image" class="img-fluid">
+                    <a href="decryption/" class="btn btn-primary btn-lg mt-3">Decrypt Now</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="faqs" class="section section-light">
+        <div class="container">
+            <h2>Frequently Asked Questions</h2>
+            <div class="faq-item">
+                <h3>How to use this website?</h3>
+                <p>Navigate to the Encrypt Now or Decrypt Now sections to securely embed or extract medical records within diagnostic images.</p>
+            </div>
+            <div class="faq-item">
+                <h3>What makes MediShield secure?</h3>
+                <p>We use advanced encryption and steganographic techniques to ensure the confidentiality and integrity of your data.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="section section-dark contact-info">
+        <div class="container">
+            <h2>Contact Us</h2>
+            <p>Feel free to reach out to us for any queries or support.</p>
+            <ul>
+                <li><strong>Address:</strong> Mysore, Karnataka</li>
+                <li><strong>Email:</strong> medi_shield@gmail.com</li>
+                <li><strong>Phone:</strong> +91 9876543210</li>
+            </ul>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 MediShield. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

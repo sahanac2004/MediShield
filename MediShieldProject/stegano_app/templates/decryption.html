@@ -1,0 +1,197 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Decryption - Image Steganography Project</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+        }
+
+        body {
+            background: #0d0d0d; /* Dark black background */
+            color: #e0e0e0; /* Light gray text */
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .navbar {
+            background-color: #212121; /* Darker black */
+        }
+
+        .content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 30px;
+        }
+
+        .container {
+            background-color: rgba(255, 255, 255, 0.2); /* Semi-transparent white */
+            padding: 30px;
+            border-radius: 10px;
+            width: 80%;
+            max-width: 900px; /* Increased max-width */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.7);
+        }
+
+        .form-control {
+            background-color: #333; /* Dark gray */
+            color: #e0e0e0; /* Light gray */
+            border: 1px solid #555; /* Slightly lighter gray */
+        }
+
+        .form-control:focus {
+            background-color: #444; /* Slightly lighter gray */
+            border-color: #43cea2; /* Accent color */
+        }
+
+        .btn-primary {
+            background-color: #43cea2; /* Accent color */
+            border-color: #43cea2; /* Accent color */
+        }
+
+        .btn-primary:hover {
+            background-color: #35a585; /* Slightly darker accent color */
+            border-color: #35a585; /* Slightly darker accent color */
+        }
+
+        .alert {
+            background-color: #212121; /* Darker black */
+            color: #e0e0e0; /* Light gray */
+            border: 1px solid #555; /* Slightly lighter gray */
+        }
+
+        .alert h4 {
+            color: #43cea2; /* Accent color */
+        }
+
+        .footer {
+            background-color: #212121; /* Darker black */
+            color: #e0e0e0; /* Light gray text */
+            padding: 10px;
+            text-align: center;
+        }
+
+        .decryption-layout {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .decryption-image {
+            flex: 1;
+            margin-right: 20px;
+        }
+
+        .decryption-data {
+            flex: 1;
+        }
+
+        .decryption-image img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+
+            .decryption-layout {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .decryption-image, .decryption-data {
+                width: 100%;
+                margin: 0;
+                margin-bottom: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    {% include "navbar.html" %}
+    <div class="content">
+        <div class="container">
+            <h1 class="text-center">Decrypt Text from Image</h1>
+            <form class="mt-5" action="{% url 'decryption' %}" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                
+                <div class="form-group col-md-12">
+                    <label for="image">Encrypted Image:</label>
+                    <input type="file" class="form-control-file" id="image" name="image" required>
+                </div>
+                <input type="submit" value="Decrypt" class="btn btn-primary">
+            </form>
+            {% if text %}
+                <div class="decryption-layout mt-3">
+                    
+                        <div id="imagePreviewContainer"></div>
+                   
+                    <div class="decryption-data">
+                        <div class="alert alert-info mt-3">
+                            <h4>Decrypted Form Data:</h4>
+                            <ul>
+                                <li><strong>Patient Name:</strong> {{ patient_name }}</li>
+                                <li><strong>Age:</strong> {{ age }}</li>
+                                <li><strong>Gender:</strong> {{ gender }}</li>
+                                <li><strong>Contact Information:</strong> {{ contact_info }}</li>
+                                <li><strong>Medical History:</strong> {{ medical_history }}</li>
+                                <li><strong>Medication Management:</strong> {{ medication_management }}</li>
+                                <li><strong>Lab Results:</strong> {{ lab_results }}</li>
+                                <li><strong>Clinical Notes:</strong> {{ clinical_notes }}</li>
+                                <li><strong>Immunization Records:</strong> {{ immunization_records }}</li>
+                                <li><strong>Allergies and Adverse Reactions:</strong> {{ allergies_reactions }}</li>
+                                <li><strong>Treatment Plans:</strong> {{ treatment_plans }}</li>
+                                <li><strong>Billing and Insurance Information:</strong> {{ billing_info }}</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+
+    <footer class="footer">
+        <p>&copy; MediShield 2024</p>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.getElementById('image').addEventListener('change', function(event) {
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    const imagePreview = document.createElement('img');
+                    imagePreview.src = e.target.result;
+                    imagePreview.style.maxWidth = '100%'; 
+                    imagePreview.style.height = 'auto'; 
+                    const previewContainer = document.getElementById('imagePreviewContainer');
+                    previewContainer.innerHTML = ''; 
+                    previewContainer.appendChild(imagePreview);
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+    </script>
+</body>
+</html> 
