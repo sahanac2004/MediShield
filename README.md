@@ -19,7 +19,7 @@ MediShield is a web-based platform built using Django for securely hiding sensit
 
 1. **Clone the Repository**:
     \`\`\`bash
-    git clone https://github.com/yourusername/medishield.git
+    git clone https://github.com/sahanac2004/MediShield-.git
     cd medishield
     \`\`\`
 
