@@ -121,7 +121,7 @@ We welcome contributions to MediShield!
 
 For any questions, feedback, or suggestions, feel free to reach out:  
 
-- *Email:* [chandanadc2003@gmail.com](mailto:chandanadc2003@gmail.com)  
+- *Email:* [sahanac629@gmail.com](mailto:sahanac629@gmail.com)  
 
 --- 
 
