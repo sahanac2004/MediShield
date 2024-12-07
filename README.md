@@ -1,7 +1,3 @@
-Here’s the **README.md** in the best format with clear headings, subheadings, and concise information based on your input:
-
----
-
 # MediShield - Secure Medical Image Steganography Platform  
 
 *MediShield* is a web-based application developed using Django that securely embeds sensitive medical information within diagnostic images. By utilizing advanced steganography techniques and encryption, the platform ensures patient data confidentiality and integrity without compromising the visual quality of images.
