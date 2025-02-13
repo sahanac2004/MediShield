@@ -27,7 +27,7 @@ Follow these steps to set up and run the application:
 
 1. *Clone the Repository:*  
    bash
-   git clone https://github.com/sahanac2004/MediShield-.git
+   git clone https://github.com/sahanac2004/MediShield.git
    cd MediShield
    
 
